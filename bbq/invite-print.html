@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Backyard Barbecue · Printable Invites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600&family=Zilla+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* The address comes from your Google Sheet; the RSVP link is worked out from this page's URL. See the script at the bottom. */
+  :root {
+    --char: #1b1512;
+    --ink: #231a14;
+    --ink-soft: #5a4a3c;
+    --paper: #f3eadb;
+    --ember: #b84a1b;
+    --rule: #b9a88c;
+    --guide: #bdb4a6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: #8c8378;
+    font-family: 'Zilla Slab', Georgia, serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .lbl { font-family: 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: .18em; font-weight: 600; }
+  .slab { font-family: 'Alfa Slab One', Georgia, serif; font-weight: 400; }
+
+  /* ---- Screen-only toolbar ---- */
+  .toolbar {
+    max-width: 8.5in; margin: 24px auto 0; padding: 14px 18px; display: flex; gap: 16px; align-items: center;
+    background: var(--char); color: #efe3cf; font-size: 15px; border-radius: 6px;
+  }
+  .toolbar p { margin: 0; flex: 1; line-height: 1.4; }
+  .toolbar button {
+    border: 0; background: var(--ember); color: #fff8ee; padding: 12px 18px; cursor: pointer; border-radius: 3px;
+    font: 600 14px 'Oswald', sans-serif; letter-spacing: .14em; text-transform: uppercase;
+  }
+
+  /* ---- The sheet: US Letter, 2 × 2 quarter-page invites ---- */
+  /* A small page margin keeps everything inside the printer's unprintable edge.
+     If the browser adds bigger margins of its own, the print rules below shrink the grid to fit. */
+  @page { size: letter portrait; margin: 0.25in; }
+  .sheet {
+    width: 8.5in; height: 11in; margin: 24px auto; background: #fff; position: relative;
+    display: grid; grid-template-columns: repeat(2, 4.25in); grid-template-rows: repeat(2, 5.5in);
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  /* Cut guides: dashed center lines */
+  .sheet::before, .sheet::after { content: ""; position: absolute; pointer-events: none; }
+  .sheet::before { left: 50%; top: 0; bottom: 0; border-left: 1px dashed var(--guide); }
+  .sheet::after  { top: 50%; left: 0; right: 0; border-top: 1px dashed var(--guide); }
+
+  /* ---- One invite (4.25in × 5.5in) ---- */
+  .card {
+    width: 4.25in; height: 5.5in;
+    padding: 0.3in;            /* keeps everything inside most home printers' unprintable edge */
+    display: flex;
+  }
+  .frame {
+    flex: 1; border: 2.5pt solid var(--ink); background: var(--paper);
+    padding: 0.2in 0.2in 0.24in; display: flex; flex-direction: column; gap: 0.085in;
+    position: relative; isolation: isolate;
+  }
+  .frame::after { /* inner hairline, like a stamped label */
+    content: ""; position: absolute; inset: 4pt; border: 0.75pt solid var(--ink); pointer-events: none; z-index: -1;
+  }
+  .kicker { font-size: 7.5pt; color: var(--ember); }
+  h1 { margin: 0; font-size: 24pt; line-height: .95; color: var(--ink); }
+  .tag { margin: 0; font-size: 10pt; color: var(--ink-soft); }
+
+  .stamps { display: flex; gap: 0.08in; }
+  .stamp { flex: 1; border: 1.5pt solid var(--ink); padding: 4pt 7pt; display: flex; flex-direction: column; background: #fffaf1; }
+  .stamp .lbl { font-size: 6.5pt; color: var(--ink-soft); }
+  .stamp .slab { font-size: 15pt; line-height: 1.15; }
+
+  .menu { border-top: 1pt solid var(--rule); border-bottom: 1pt solid var(--rule); padding: 5pt 0; display: flex; flex-direction: column; gap: 3pt; }
+  .menu .lbl { font-size: 6.5pt; color: var(--ember); text-align: center; margin-bottom: 1pt; }
+  .menu ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2pt 10pt; }
+  .menu li { display: flex; align-items: flex-end; font-family: 'Alfa Slab One', Georgia, serif; font-size: 10pt; }
+  .menu li::after { content: ""; flex: 1; border-bottom: 1.25pt dotted var(--ink-soft); margin: 0 0 3pt 5pt; }
+  .menu p { margin: 2pt 0 0; font-size: 8.5pt; text-align: center; color: var(--ink-soft); }
+
+  .where { display: flex; gap: 6pt; align-items: flex-start; font-size: 9.5pt; line-height: 1.3; }
+  .where svg { flex: none; margin-top: 1pt; }
+  .where strong { font-weight: 600; }
+
+  .rsvp { margin-top: auto; display: flex; gap: 0.12in; align-items: center; background: var(--char); color: #efe3cf; padding: 7pt; }
+  .qr { flex: none; width: 0.85in; height: 0.85in; background: #fff; padding: 4pt; display: flex; align-items: center; justify-content: center; }
+  .qr svg { width: 100%; height: 100%; display: block; }
+  .qr.placeholder { border: 1.25pt dashed #8a7a64; background: #fffaf1; color: var(--ink-soft); font: 600 6.5pt 'Oswald', sans-serif; letter-spacing: .12em; text-transform: uppercase; text-align: center; }
+  .rsvp-text { display: flex; flex-direction: column; gap: 2pt; min-width: 0; }
+  .rsvp-text .slab { font-size: 13pt; color: #fff8ee; }
+  .rsvp-text .by { font-size: 6.5pt; color: #e0773f; }
+  .rsvp-text p { margin: 0; font-size: 8pt; line-height: 1.3; color: #d9cbb5; }
+  .rsvp-text .url { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 7.5pt; letter-spacing: .02em; color: #fff8ee; overflow-wrap: anywhere; }
+
+  @media print {
+    html, body { background: #fff; height: 100%; }
+    .toolbar { display: none; }
+    /* Fill whatever printable area the browser leaves, never more than one page. */
+    .sheet {
+      margin: 0; box-shadow: none;
+      width: 100%; height: 100vh; max-height: 10.5in; overflow: hidden;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .card { width: auto; height: auto; min-height: 0; padding: 0.12in; overflow: hidden; container-type: size; }
+    /* If the browser's margins leave less room, scale each invite down to fit. */
+    @container (max-height: 5in)   { .frame { zoom: .94; } }
+    @container (max-height: 4.75in) { .frame { zoom: .88; } }
+    @container (max-height: 4.5in)  { .frame { zoom: .82; } }
+    @container (max-height: 4.25in) { .frame { zoom: .76; } }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <p><strong>Print preview.</strong> Print on US Letter at <strong>100% / Actual size</strong> (not "Fit to page"), turn on <strong>Background graphics</strong>, then cut along the dashed lines.</p>
+  <button type="button" onclick="window.print()">Print</button>
+</div>
+
+<main class="sheet" id="sheet" aria-label="Four invitations on one letter page"></main>
+
+<template id="invite">
+  <article class="card">
+    <div class="frame">
+      <div class="lbl kicker">You're invited</div>
+      <h1 class="slab">Backyard<br>Barbecue</h1>
+      <p class="tag">Low and slow all morning. Plates up at one.</p>
+
+      <div class="stamps">
+        <div class="stamp"><span class="lbl">Sunday</span><span class="slab">Oct 11</span></div>
+        <div class="stamp"><span class="lbl">Fire's on</span><span class="slab">1–7 PM</span></div>
+      </div>
+
+      <div class="menu">
+        <div class="lbl">Coming off the smoker</div>
+        <ul>
+          <li>Brisket</li><li>Pulled Pork</li><li>Ribs</li><li>Wings</li>
+        </ul>
+        <p>The meat's covered. Bring a side, a dessert, or something to drink.</p>
+      </div>
+
+      <div class="where">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 22s7-7.5 7-13a7 7 0 0 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div style="display:flex;flex-direction:column;gap:1pt"><strong data-field="address"></strong><span style="color:var(--ink-soft);font-size:8.5pt">Follow the smoke</span></div>
+      </div>
+
+      <div class="rsvp">
+        <div class="qr" data-field="qr"></div>
+        <div class="rsvp-text">
+          <span class="lbl by">RSVP by Wed, Oct 7</span>
+          <span class="slab">Scan to RSVP</span>
+          <p>Let us know you're coming and what you're bringing.</p>
+          <span class="url" data-field="url"></span>
+        </div>
+      </div>
+    </div>
+  </article>
+</template>
+
+<script>
+/* ============ SET THIS ONE ============ */
+// Same Apps Script URL (ends in /exec) you pasted into index.html.
+// The address is read from your Google Sheet, so it never lives in this file or on GitHub.
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwxSxgU8_Pc3_b7QYSdvfmxNYgr4o_Ml-_ICrR74mtFu1qQMMZIp9NmPzUE3CF6PF99/exec';
+const COPIES   = 4;                     // invites per page (2 × 2 grid)
+
+// Optional: only needed if you print from a local file instead of the published page.
+const RSVP_URL_OVERRIDE = '';           // e.g. 'https://yourname.github.io/bbq/'
+/* ====================================== */
+
+// RSVP link = this page's own address minus the file name and any ?query/#hash.
+//   https://you.github.io/bbq/invite-print.html  ->  https://you.github.io/bbq/
+function inferRsvpUrl() {
+  if (RSVP_URL_OVERRIDE) return RSVP_URL_OVERRIDE;
+  if (!/^https?:$/.test(location.protocol)) return '';      // opened as a local file: can't infer
+  return location.origin + location.pathname.replace(/[^\/]*$/, '');
+}
+const RSVP_URL = inferRsvpUrl();
+const isRealUrl = /^https?:\/\//i.test(RSVP_URL);
+const shortUrl = RSVP_URL.replace(/^https?:\/\//i, '').replace(/\/$/, '');
+
+const sheet = document.getElementById('sheet');
+const tpl = document.getElementById('invite');
+for (let i = 0; i < COPIES; i++) {
+  const node = tpl.content.cloneNode(true);
+  node.querySelector('[data-field="address"]').textContent = 'Loading address…';
+  node.querySelector('[data-field="url"]').textContent = isRealUrl ? shortUrl : '[RSVP URL]';
+  sheet.appendChild(node);
+}
+
+function setAddress(text) {
+  document.querySelectorAll('[data-field="address"]').forEach((el) => { el.textContent = text; });
+}
+
+// Pull the address from the Sheet (Details tab, key "address").
+(async function loadAddress() {
+  if (!/^https:\/\/script\.google\.com\//.test(ENDPOINT)) return setAddress('[ADDRESS]');
+  try {
+    const data = await (await fetch(ENDPOINT, { cache: 'no-store' })).json();
+    const addr = data && data.ok && data.details && (data.details.address || '').trim();
+    setAddress(addr || '[Add the address in your Sheet]');
+  } catch (e) {
+    setAddress("[Couldn't load the address. Refresh before printing]");
+  }
+})();
+
+function placeholderQR() {
+  document.querySelectorAll('[data-field="qr"]').forEach((el) => {
+    el.classList.add('placeholder');
+    el.textContent = 'QR code';
+  });
+}
+
+function drawQR() {
+  if (!isRealUrl || typeof qrcode !== 'function') return placeholderQR();
+  const qr = qrcode(0, 'M');
+  qr.addData(RSVP_URL);
+  qr.make();
+  const svg = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+  document.querySelectorAll('[data-field="qr"]').forEach((el) => { el.innerHTML = svg; });
+}
+
+// Load the QR library (cdnjs, falling back to jsDelivr), then draw.
+(function loadQR(urls) {
+  if (!isRealUrl) return placeholderQR();
+  if (!urls.length) return placeholderQR();
+  const s = document.createElement('script');
+  s.src = urls[0];
+  s.onload = drawQR;
+  s.onerror = () => loadQR(urls.slice(1));
+  document.head.appendChild(s);
+})([
+  'https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js',
+  'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js',
+]);
+</script>
+</body>
+</html>

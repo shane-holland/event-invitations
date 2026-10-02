@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Backyard Barbecue · Sun, Oct 11</title>
+<meta name="description" content="Sunday, October 11 · 1–7 PM. Brisket, pulled pork, ribs and wings. RSVP by October 7.">
+<meta property="og:title" content="Backyard Barbecue · Sun, Oct 11">
+<meta property="og:description" content="1–7 PM. Brisket, pulled pork, ribs and wings. RSVP by Oct 7 and tell us what you're bringing.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1b1512">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1512'/%3E%3Cpath d='M16 6c3 5 7 7 7 13a7 7 0 0 1-14 0c0-4 2-6 4-8 0 3 1 4 3 5-1-4 0-7 0-10z' fill='%23b84a1b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Oswald:wght@500;600&family=Zilla+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --char: #1b1512;
+    --char-2: #262019;
+    --line: #3a2f27;
+    --paper: #eadcc2;
+    --paper-2: #f7efe0;
+    --ink: #231a14;
+    --ink-soft: #5a4a3c;
+    --cream: #efe3cf;
+    --muted: #cbbba3;
+    --muted-2: #a8987f;
+    --ember: #b84a1b;
+    --ember-hi: #e0773f;
+    --rust: #8a3a16;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--char);
+    color: var(--cream);
+    font-family: 'Zilla Slab', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 0 20px; }
+  .lbl { font-family: 'Oswald', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: .18em; font-size: 12px; font-weight: 600; }
+  .slab { font-family: 'Alfa Slab One', Georgia, serif; font-weight: 400; }
+  h1, h2, p { margin: 0; }
+  a { color: var(--ember-hi); }
+  :focus-visible { outline: 3px solid var(--ember-hi); outline-offset: 3px; }
+
+  /* Hero */
+  header { padding: 64px 8px 44px; display: flex; flex-direction: column; gap: 18px; border-bottom: 1px solid var(--line); }
+  header .kicker { color: var(--ember-hi); }
+  header h1 { font-size: clamp(52px, 15vw, 72px); line-height: .95; }
+  header p { font-size: 20px; color: var(--muted); }
+  .stamps { display: flex; gap: 10px; margin-top: 8px; }
+  .stamp { flex: 1; border: 2px solid var(--cream); padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .stamp .lbl { color: var(--muted); }
+  .stamp .slab { font-size: 30px; line-height: 1.1; }
+
+  /* Paper cards */
+  .paper { background: var(--paper); color: var(--ink); padding: 26px 22px; margin-top: 32px; display: flex; flex-direction: column; gap: 18px; }
+  .paper .lbl.kick { color: var(--rust); }
+  .row { display: flex; gap: 14px; align-items: flex-start; }
+  .row svg { flex: none; margin-top: 2px; }
+  .row div { display: flex; flex-direction: column; gap: 2px; }
+  .row strong { font-size: 18px; font-weight: 600; }
+  .row span { font-size: 16px; color: var(--ink-soft); }
+  .host-note { font-size: 16px; color: var(--ink-soft); border-top: 1px dashed #b9a88c; padding-top: 14px; }
+  .btns { display: flex; gap: 10px; margin-top: 4px; }
+  .btn {
+    flex: 1; min-height: 48px; display: flex; align-items: center; justify-content: center; text-align: center;
+    font: 600 14px 'Oswald', sans-serif; letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+    border: 2px solid var(--ink); background: var(--ink); color: var(--cream); cursor: pointer; padding: 0 10px;
+  }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+
+  /* Menu board */
+  .board { margin-top: 40px; padding: 30px 24px; background: var(--char-2); border: 1px solid #4a3d33; display: flex; flex-direction: column; gap: 20px; }
+  .board .head { display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; }
+  .board .head .lbl { color: var(--ember-hi); }
+  .board h2 { font-size: 34px; }
+  .menu { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+  .menu li { display: flex; align-items: flex-end; }
+  .menu .slab { font-size: 22px; }
+  .menu .leader { flex: 1; border-bottom: 2px dotted #6b5a4a; margin: 0 10px 6px; }
+  .menu .lbl { color: var(--muted); }
+  .board p { font-size: 17px; color: var(--muted); text-align: center; }
+
+  /* On the table */
+  .table { margin-top: 44px; display: flex; flex-direction: column; gap: 16px; }
+  .table .lbl { color: var(--ember-hi); }
+  .table h2, .rsvp h2 { font-size: 34px; }
+  .table .sub { font-size: 16px; color: var(--muted-2); }
+  .items { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .items li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 2px; border-bottom: 1px solid var(--line); font-size: 19px; }
+  .items li .lbl { color: var(--muted-2); }
+  .items li.empty { color: var(--muted-2); font-style: italic; font-size: 17px; }
+  .items li.new { animation: glow 2.4s ease-out; }
+  @keyframes glow { 0% { background: rgba(224,119,63,.28); } 100% { background: transparent; } }
+
+  /* RSVP */
+  .rsvp { margin-top: 44px; padding: 28px 22px; }
+  .rsvp form { display: flex; flex-direction: column; gap: 18px; }
+  .field-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .field-wrap .opt { text-transform: none; letter-spacing: 0; font-weight: 500; font-family: 'Zilla Slab', serif; font-size: 14px; color: var(--ink-soft); }
+  .field {
+    width: 100%; height: 48px; padding: 0 14px; border: 2px solid var(--ink); border-radius: 4px;
+    background: var(--paper-2); font: 500 17px 'Zilla Slab', Georgia, serif; color: var(--ink);
+  }
+  .field::placeholder { color: #8a7a64; }
+  .stepper { display: flex; align-items: center; width: 170px; border: 2px solid var(--ink); border-radius: 4px; background: var(--paper-2); }
+  .stepper button { width: 52px; height: 48px; border: 0; background: transparent; font: 400 26px 'Alfa Slab One', serif; color: var(--ink); cursor: pointer; }
+  .stepper button:disabled { opacity: .3; cursor: default; }
+  .stepper output { flex: 1; text-align: center; font: 400 24px 'Alfa Slab One', serif; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .submit {
+    height: 56px; border: 0; border-radius: 2px; background: var(--ember); color: #fff8ee; cursor: pointer;
+    font: 600 17px 'Oswald', sans-serif; letter-spacing: .16em; text-transform: uppercase;
+  }
+  .submit:hover { background: #a34015; }
+  .submit:disabled { opacity: .6; cursor: progress; }
+  .err { color: #9b1c1c; font-size: 16px; font-weight: 600; min-height: 0; }
+  .err:empty { display: none; }
+  .done { display: none; flex-direction: column; gap: 12px; text-align: center; align-items: center; padding: 12px 0 4px; }
+  .done .slab { font-size: 30px; }
+  .done p { font-size: 17px; color: var(--ink-soft); }
+  .done button { background: none; border: 0; color: var(--rust); font: 600 16px 'Zilla Slab', serif; text-decoration: underline; cursor: pointer; padding: 8px; }
+  .rsvp.is-done form { display: none; }
+  .rsvp.is-done .done { display: flex; }
+
+  footer { padding: 36px 8px 56px; text-align: center; display: flex; flex-direction: column; gap: 6px; }
+  footer .slab { font-size: 20px; }
+  footer span { font-size: 15px; color: #8a7a64; }
+
+  @media (prefers-reduced-motion: reduce) { .items li.new { animation: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header>
+    <div class="lbl kicker">You're invited</div>
+    <h1 class="slab">Backyard Barbecue</h1>
+    <p>Low and slow all morning. Plates up at one.</p>
+    <div class="stamps">
+      <div class="stamp"><span class="lbl">Sunday</span><span class="slab">Oct 11</span></div>
+      <div class="stamp"><span class="lbl">Fire's on</span><span class="slab">1–7 PM</span></div>
+    </div>
+  </header>
+
+  <section class="paper" aria-labelledby="details-h">
+    <h2 class="lbl kick" id="details-h">The details</h2>
+    <div class="row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      <div><strong>Sunday, October 11</strong><span>1:00 – 7:00 PM</span></div>
+    </div>
+    <div class="row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 22s7-7.5 7-13a7 7 0 0 0-14 0c0 5.5 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <div><strong id="address">Address coming soon</strong><span>Follow the smoke</span></div>
+    </div>
+    <div class="row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <div><strong>RSVP by Wednesday, Oct 7</strong><span>So we know how much to smoke</span></div>
+    </div>
+    <p class="host-note" id="host-note" hidden></p>
+    <div class="btns">
+      <button type="button" class="btn" id="cal-btn">Add to calendar</button>
+      <a class="btn ghost" id="dir-btn" href="#" target="_blank" rel="noopener" aria-disabled="true">Directions</a>
+    </div>
+  </section>
+
+  <section class="board" aria-labelledby="meat-h">
+    <div class="head">
+      <div class="lbl">Coming off the smoker</div>
+      <h2 class="slab" id="meat-h">The Meat</h2>
+    </div>
+    <ul class="menu">
+      <li><span class="slab">Brisket</span><span class="leader"></span><span class="lbl">Sliced</span></li>
+      <li><span class="slab">Pulled Pork</span><span class="leader"></span><span class="lbl">Piled</span></li>
+      <li><span class="slab">Ribs</span><span class="leader"></span><span class="lbl">By the bone</span></li>
+      <li><span class="slab">Wings</span><span class="leader"></span><span class="lbl">By the dozen</span></li>
+    </ul>
+    <p>The meat's covered. Feel free to bring a side, a dessert, or something to drink.  Or just show up and eat!</p>
+  </section>
+
+  <section class="table" aria-labelledby="table-h">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div class="lbl">Already spoken for</div>
+      <h2 class="slab" id="table-h">On the Table</h2>
+      <p class="sub">Check the list so we don't end up with four potato salads.</p>
+    </div>
+    <ul class="items" id="items" aria-live="polite">
+      <li class="empty">Checking the pit…</li>
+    </ul>
+  </section>
+
+  <section class="paper rsvp" id="rsvp" aria-labelledby="rsvp-h">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div class="lbl kick">Pull up a chair</div>
+      <h2 class="slab" id="rsvp-h">RSVP</h2>
+    </div>
+
+    <form id="rsvp-form" novalidate>
+      <label class="field-wrap">
+        <span class="lbl">Your name</span>
+        <input class="field" name="name" type="text" autocomplete="name" maxlength="80" placeholder="First and last" required>
+      </label>
+
+      <div class="field-wrap">
+        <span class="lbl" id="po-lbl">Plus-ones <span class="opt">(Kids welcome!)</span></span>
+        <div class="stepper" role="group" aria-labelledby="po-lbl">
+          <button type="button" id="po-minus" aria-label="Fewer guests">−</button>
+          <output id="po-val" aria-live="polite">0</output>
+          <button type="button" id="po-plus" aria-label="More guests">+</button>
+        </div>
+      </div>
+
+      <label class="field-wrap">
+        <span class="lbl">What you're bringing <span class="opt">(optional - shows on the list above)</span></span>
+        <input class="field" name="bringing" type="text" maxlength="100" placeholder="Coleslaw, Salad, etc…">
+      </label>
+
+      <label class="field-wrap">
+        <span class="lbl">Note for the pitmaster <span class="opt">(optional)</span></span>
+        <input class="field" name="note" type="text" maxlength="300" placeholder="Allergies, arriving late…">
+      </label>
+
+      <label class="hp" aria-hidden="true">Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+
+      <p class="err" id="err" role="alert"></p>
+      <button type="submit" class="submit" id="submit">Count me in</button>
+    </form>
+
+    <div class="done" id="done" tabindex="-1">
+      <svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4c3 5 8 8 8 15a8 8 0 0 1-16 0c0-5 2.5-7 5-9 0 3.5 1 5 3 6-1-5 0-8 0-12z" fill="#b84a1b"/></svg>
+      <span class="slab" id="done-title">You're on the list</span>
+      <p id="done-msg">See you Sunday the 11th.</p>
+      <button type="button" id="again">RSVP for someone else</button>
+    </div>
+  </section>
+
+  <footer>
+    <span class="slab">See you at the pit.</span>
+    <span>Plans change? Just let me know.</span>
+  </footer>
+</main>
+
+<script>
+/* ====== Configuration ====== */
+// Paste your Apps Script Web App URL (ends in /exec) between the quotes.
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwxSxgU8_Pc3_b7QYSdvfmxNYgr4o_Ml-_ICrR74mtFu1qQMMZIp9NmPzUE3CF6PF99/exec';
+
+const EVENT = {
+  title: 'Backyard Barbecue',
+  // Times in UTC. 1–7 PM Eastern (EDT) = 17:00–23:00 UTC.
+  startUTC: '20261011T170000Z',
+  endUTC: '20261011T230000Z',
+};
+/* =========================== */
+
+const DEMO = !/^https:\/\/script\.google\.com\//.test(ENDPOINT);
+const $ = (id) => document.getElementById(id);
+let details = {};
+let lastSubmitted = '';
+
+/* ---- Load details + items ---- */
+async function load() {
+  try {
+    const data = DEMO ? demoData() : await (await fetch(ENDPOINT, { cache: 'no-store' })).json();
+    if (!data.ok) throw new Error('bad response');
+    details = data.details || {};
+    renderDetails();
+    renderItems(data.items || []);
+  } catch (e) {
+    $('items').innerHTML = '';
+    const li = document.createElement('li');
+    li.className = 'empty';
+    li.textContent = "Couldn't load the list right now. Try refreshing.";
+    $('items').appendChild(li);
+  }
+}
+
+function renderDetails() {
+  const addr = (details.address || '').trim();
+  if (addr) {
+    $('address').textContent = addr;
+    const dir = $('dir-btn');
+    dir.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr);
+    dir.removeAttribute('aria-disabled');
+  }
+  const note = (details.note || '').trim();
+  if (note) { $('host-note').textContent = note; $('host-note').hidden = false; }
+}
+
+function renderItems(items) {
+  const ul = $('items');
+  ul.innerHTML = '';
+  if (!items.length) {
+    const li = document.createElement('li');
+    li.className = 'empty';
+    li.textContent = 'Nothing claimed yet. Be the first.';
+    ul.appendChild(li);
+    return;
+  }
+  const justAdded = lastSubmitted.toLowerCase().replace(/\s+/g, ' ');
+  items.forEach((it) => {
+    const li = document.createElement('li');
+    const name = document.createElement('span');
+    name.textContent = it.name;
+    li.appendChild(name);
+    if (it.count > 1) {
+      const c = document.createElement('span');
+      c.className = 'lbl';
+      c.textContent = '×' + it.count;
+      li.appendChild(c);
+    }
+    if (justAdded && it.name.toLowerCase().replace(/\s+/g, ' ') === justAdded) li.classList.add('new');
+    ul.appendChild(li);
+  });
+}
+
+/* ---- Plus-one stepper ---- */
+const MAX_PO = 6;
+let plusOnes = 0;
+function setPO(n) {
+  plusOnes = Math.max(0, Math.min(MAX_PO, n));
+  $('po-val').textContent = plusOnes;
+  $('po-minus').disabled = plusOnes === 0;
+  $('po-plus').disabled = plusOnes === MAX_PO;
+}
+$('po-minus').addEventListener('click', () => setPO(plusOnes - 1));
+$('po-plus').addEventListener('click', () => setPO(plusOnes + 1));
+setPO(0);
+
+/* ---- Submit ---- */
+$('rsvp-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target;
+  const payload = {
+    name: f.name.value.trim(),
+    plusOnes,
+    bringing: f.bringing.value.trim(),
+    note: f.note.value.trim(),
+    website: f.website.value,
+  };
+  $('err').textContent = '';
+  if (!payload.name) { $('err').textContent = 'Please add your name.'; f.name.focus(); return; }
+
+  const btn = $('submit');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    let res;
+    if (DEMO) {
+      await new Promise((r) => setTimeout(r, 600));
+      if (payload.bringing) demoItems.push(payload.bringing);
+      res = { ok: true };
+    } else {
+      // text/plain avoids a CORS preflight, which Apps Script can't answer.
+      res = await (await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+      })).json();
+    }
+    if (!res.ok) throw new Error(res.error || 'Something went wrong.');
+
+    lastSubmitted = payload.bringing;
+    const first = payload.name.split(' ')[0];
+    $('done-title').textContent = "You're on the list, " + first;
+    $('done-msg').textContent =
+      (payload.bringing ? 'Thanks for bringing ' + payload.bringing + '. ' : '') +
+      (plusOnes ? 'Saved you ' + (plusOnes + 1) + ' seats. ' : '') +
+      'See you Sunday the 11th.';
+    $('rsvp').classList.add('is-done');
+    $('done').focus();
+    f.reset();
+    setPO(0);
+    load();
+  } catch (err) {
+    $('err').textContent = (err && err.message && err.message !== 'Failed to fetch')
+      ? err.message
+      : "Couldn't send that. Check your connection and try again.";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Count me in';
+  }
+});
+
+$('again').addEventListener('click', () => {
+  $('rsvp').classList.remove('is-done');
+  $('rsvp-form').name.focus();
+});
+
+/* ---- Add to calendar (.ics) ---- */
+$('cal-btn').addEventListener('click', () => {
+  const esc = (s) => String(s).replace(/[\\;,]/g, (m) => '\\' + m).replace(/\n/g, '\\n');
+  const lines = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//backyard-bbq//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    'UID:backyard-bbq-20261011@invite',
+    'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''),
+    'DTSTART:' + EVENT.startUTC,
+    'DTEND:' + EVENT.endUTC,
+    'SUMMARY:' + esc(EVENT.title),
+    details.address ? 'LOCATION:' + esc(details.address) : null,
+    'DESCRIPTION:' + esc('Brisket, pulled pork, ribs and wings. ' + location.href),
+    'END:VEVENT', 'END:VCALENDAR',
+  ].filter(Boolean);
+  const blob = new Blob([lines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'backyard-bbq.ics';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+});
+
+/* ---- Demo mode (used until ENDPOINT is set) ---- */
+const demoItems = ['Mac & cheese', 'mac & cheese', 'Cornbread', 'Coleslaw', 'Banana pudding', 'Sweet tea', 'Bag of ice', 'Bag of ice'];
+function demoData() {
+  const idx = {}, items = [];
+  demoItems.forEach((s) => {
+    const k = s.toLowerCase().replace(/\s+/g, ' ');
+    if (k in idx) items[idx[k]].count++; else { idx[k] = items.length; items.push({ name: s, count: 1 }); }
+  });
+  return { ok: true, details: {}, items };
+}
+
+load();
+</script>
+</body>
+</html>
